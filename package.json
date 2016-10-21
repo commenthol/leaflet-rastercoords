@@ -1,0 +1,23 @@
+{
+  "name": "leaflet-rastercoords",
+  "version": "1.0.0",
+  "description": "Leaflet plugin for plain image map projection to display large images using tiles generated with gdal2tiles-leaflet",
+  "main": "rastercoords.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified - run example/index.html instead\" && exit 1"
+  },
+  "author": "commenthol <commenthol@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/commenthol/leaflet-rastercoords.git"
+  },
+  "keywords": [
+    "Leaflet",
+    "raster",
+    "coordinates"
+  ],
+  "dependencies": {
+    "leaflet": "^1.0.1"
+  }
+}

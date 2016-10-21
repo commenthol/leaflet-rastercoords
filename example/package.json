@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "example-leaflet-rastercoords",
+  "version": "1.0.0",
+  "description": "example for leaflet-rastercoords plugin",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./createtiles.sh"
+  },
+  "author": "commenthol <commenthol@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "leaflet": "^1.0.1"
+  }
+}
