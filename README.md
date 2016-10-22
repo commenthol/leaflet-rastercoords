@@ -2,7 +2,7 @@
 
 > Leaflet plugin for plain image map projection to display large images using tiles generated with gdal2tiles-leaflet
 
-[![NPM version](https://badge.leaflet-rastercoordsfury.io/js/leaflet-rastercoords.svg)](https://www.npmjs.com/package/leaflet-rastercoords)
+[![NPM version](https://badge.fury.io/js/leaflet-rastercoords.svg)](https://www.npmjs.com/package/leaflet-rastercoords)
 
 See the plugin in action on https://commenthol.github.io/gdal2tiles-leaflet/test/index.html.
 
