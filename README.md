@@ -4,7 +4,7 @@
 
 [![NPM version](https://badge.fury.io/js/leaflet-rastercoords.svg)](https://www.npmjs.com/package/leaflet-rastercoords)
 
-See the plugin in action on https://commenthol.github.io/gdal2tiles-leaflet/test/index.html.
+See the plugin in action on <https://commenthol.github.io/leaflet-rastercoords/>.
 
 ## Usage
 
