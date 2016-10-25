@@ -11,8 +11,4 @@ test ! -f gdal2tiles.py \
 # process ...
 python ./gdal2tiles.py -l -p raster -z 0-4 -w none karta.jpg tiles
 
-# install leaflet ...
-test ! -d node_modules \
-  npm install
-
 echo 'Now open "index.html" in your browser.'
