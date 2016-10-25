@@ -11,7 +11,9 @@ See the plugin in action on <https://commenthol.github.io/leaflet-rastercoords/>
 Process your "large" image with [gdal2tiles-leaflet][]
 
 ```js
+// for use with browserify / webpack
 var L = require('leaflet')
+L.RasterCoords = require('leaflet-rastercoords')
 
 var img = [
   3831,  // original width of image (here from `example/karta.jpg`)
