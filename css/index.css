@@ -20,6 +20,10 @@ header h1 {
   font-weight: 100;
   margin: 0;
 }
+footer {
+  display: block;
+  height: 5em;
+}
 code {
   max-height: 400px;
 }
@@ -42,4 +46,6 @@ hr {
 #map {
   max-width: 768px;
   border: 1px solid #eee;
+  width: 100%;
+  height: 400px;
 }
