@@ -28,7 +28,7 @@ var rc = new L.RasterCoords(map, img)
 map.setMaxZoom(rc.zoomLevel())
 // all coordinates need to be unprojected using the `unproject` method
 // set the view in the lower right edge of the image
-map.setView(rc.unproject([img[0], img[1]), 2)
+map.setView(rc.unproject([img[0], img[1]]), 2)
 
 // set markers on click events in the map
 map.on('click', function (event) {
@@ -53,7 +53,7 @@ Take a look at [example/createtiles.sh](./example/createtiles.sh).
 
 ## License
 
-Copyright (c) 2016 commenthol (MIT License)  
+Copyright (c) 2016- commenthol (MIT License)  
 See [LICENSE][] for more info.
 
 ## References
