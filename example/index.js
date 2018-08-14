@@ -4,10 +4,10 @@
  */
 /* globals L */
 
-function init () {
+function init () { // eslint-disable-line no-unused-vars
   var img = [
-    3831,  // original width of image
-    3101   // original height of image
+    3831, // original width of image
+    3101 // original height of image
   ]
   // create the map
   var map = L.map('map', {minZoom: 0})
