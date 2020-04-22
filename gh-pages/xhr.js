@@ -1,4 +1,5 @@
 /* global XMLHttpRequest */
+
 ;(function (window) {
   var mapper = {
     '<': '&lt;',

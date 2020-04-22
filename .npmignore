@@ -1,0 +1,14 @@
+bower_components/
+node_modules/
+tmp/
+
+example/
+gh-pages/
+index.html
+
+bower.json
+component.json
+
+*.log
+*.tgz
+.*
