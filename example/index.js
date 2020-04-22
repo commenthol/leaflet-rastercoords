@@ -195,7 +195,7 @@
       color: '#fbff2c',
     })
 
-    const layer = L.featureGroup([/*circle, */polyline, custom])
+    const layer = L.featureGroup([/*circle, polyline,*/ custom])
     map.addLayer(layer)
     return layer
   }
