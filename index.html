@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Leaflet plugin for plain image map projection to display large images using tiles generated with gdal2tiles-leaflet">
+    <title>leaflet-rastercoords - A leaflet plugin for plain image map projection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/github.min.css">
+    <link rel="stylesheet" href="gh-pages/index.css">
+  </head>
+  <body>
+    <header>
+      <h1>leaflet-rastercoords</h1>
+    </header>
+    <div class="content">
+      <div class="pure-g">
+        <div class="pure-u-1">
+          <p>
+            Leaflet plugin for plain image map projection to display large images using tiles generated with <a href="https://github.com/commenthol/gdal2tiles-leaflet">gdal2tiles-leaflet</a>.
+          </p>
+          <iframe id="map" src="./example/index.html"></iframe>
+          <p class="center">
+            <small><a href="./example/index.html">See this example stand-alone.</a></small>
+          </p>
+
+          <hr>
+
+          <h2>Using &laquo;leaflet-rastercoords&raquo;</h2>
+
+          <p>The example provides layers for markers, geoJson, and polygons.
+            Below the javascript code for Leaflet and the plugin can be found.
+            Please check the comments...
+          </p>
+
+          <pre><code class="javascript" id="indexJs"></code></pre>
+
+          <p>The tiles were generated using this script:
+          </p>
+
+          <pre><code class="bash" id="createtilesSh"></code></pre>
+
+          <hr>
+
+          <a href="https://github.com/commenthol/leaflet-rastercoords">
+            Take me to the source...
+          </a>
+        </div>
+      </div>
+      <footer>
+      </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/languages/bash.min.js"></script>
+    <script src="gh-pages/xhr.js"></script>
+    <script>
+      _xhr('./example/index.js', '#indexJS', function () {
+        _xhr('./example/createtiles.sh', '#createtilesSh', function () {
+          hljs.initHighlighting()
+        })
+      })
+    </script>
+  </body>
+</html>

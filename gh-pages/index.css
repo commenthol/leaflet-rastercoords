@@ -1,0 +1,51 @@
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #505050;
+  display: block;
+  max-width: 768px;
+  width: 100%;
+  margin: 0 auto;
+}
+header {
+  max-width: 768px;
+  margin: 0 1em;
+  padding: 1em;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  letter-spacing: 0.05em;
+}
+header h1 {
+  font-size: 300%;
+  font-weight: 100;
+  margin: 0;
+}
+footer {
+  display: block;
+  height: 5em;
+}
+code {
+  max-height: 400px;
+}
+a {
+  text-decoration: underline;
+  color: #1E90FF;
+}
+hr {
+  border-top: 1px solid #ddd;
+  display: block;
+  width: 100%;
+  margin: 1em 0;
+}
+.content {
+  padding: 1em;
+}
+.center {
+  text-align: center;
+}
+#map {
+  max-width: 768px;
+  border: 1px solid #eee;
+  width: 100%;
+  height: 400px;
+}
