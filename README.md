@@ -20,7 +20,9 @@ var img = [
   3101   // original height of image
 ]
 // create the map
-var map = L.map('map')
+var map = L.map('map', {
+  crs: L.CRS.Simple
+})
 
 // assign map and image dimensions
 var rc = new L.RasterCoords(map, img)
@@ -42,7 +44,9 @@ map.on('click', function (event) {
 
 // the tile layer containing the image generated with `gdal2tiles --leaflet -p raster -w none <img> tiles`
 L.tileLayer('./tiles/{z}/{x}/{y}.png', {
-  noWrap: true
+  noWrap: true,
+  bounds: rc.getMaxBounds(),
+  maxNativeZoom: rc.zoomLevel(),
 }).addTo(map)
 ```
 
