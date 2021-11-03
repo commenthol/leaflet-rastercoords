@@ -4,6 +4,7 @@
  * @license MIT
  */
 /* globals define */
+/* eslint no-var:off */
 
 ;(function (factory) {
   var L
@@ -68,12 +69,19 @@
       return this.map.project(coords, this.zoom)
     },
     /**
+     * get the max bounds of the image
+     */
+    getMaxBounds: function () {
+      var southWest = this.unproject([0, this.height])
+      var northEast = this.unproject([this.width, 0])
+      return new L.LatLngBounds(southWest, northEast)
+    },
+    /**
      * sets the max bounds on map
      */
     setMaxBounds: function () {
-      var southWest = this.unproject([0, this.height])
-      var northEast = this.unproject([this.width, 0])
-      this.map.setMaxBounds(new L.LatLngBounds(southWest, northEast))
+      var bounds = this.getMaxBounds()
+      this.map.setMaxBounds(bounds)
     }
   }
 
