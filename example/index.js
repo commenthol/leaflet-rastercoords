@@ -16,6 +16,7 @@
 
     // create the map
     var map = L.map(mapid, {
+      crs: L.CRS.Simple,
       minZoom: minZoom,
       maxZoom: maxZoom
     })
@@ -38,6 +39,8 @@
     // the tile layer containing the image generated with gdal2tiles --leaflet ...
     L.tileLayer('./tiles/{z}/{x}/{y}.png', {
       noWrap: true,
+      bounds: rc.getMaxBounds(),
+      maxNativeZoom: rc.zoomLevel(),
       attribution: 'Map <a href="https://commons.wikimedia.org/wiki/' +
         'File:Karta_%C3%B6ver_Europa,_1672_-_Skoklosters_slott_-_95177.tif">' +
         'Karta över Europa, 1672 - Skoklosters</a> under ' +
