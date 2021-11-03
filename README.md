@@ -46,7 +46,7 @@ map.on('click', function (event) {
 L.tileLayer('./tiles/{z}/{x}/{y}.png', {
   noWrap: true,
   bounds: rc.getMaxBounds(),
-  maxNativeZoom: rc.zoomLevel(),
+  maxNativeZoom: rc.zoomLevel()
 }).addTo(map)
 ```
 
