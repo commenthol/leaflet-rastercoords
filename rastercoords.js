@@ -4,6 +4,7 @@
  * @license MIT
  */
 /* globals define */
+/* eslint no-var:off */
 
 ;(function (factory) {
   var L
@@ -73,13 +74,13 @@
     getMaxBounds: function () {
       var southWest = this.unproject([0, this.height])
       var northEast = this.unproject([this.width, 0])
-      return new L.LatLngBounds(southWest, northEast);
+      return new L.LatLngBounds(southWest, northEast)
     },
     /**
      * sets the max bounds on map
      */
     setMaxBounds: function () {
-      const bounds = this.getMaxBounds();
+      var bounds = this.getMaxBounds()
       this.map.setMaxBounds(bounds)
     }
   }

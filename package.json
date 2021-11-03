@@ -22,11 +22,15 @@
     "example": "example"
   },
   "scripts": {
-    "lint": "standard -v",
+    "example": "hs . -a localhost -c-1 -o",
+    "lint": "standard -v ./*.js",
     "test": "echo \"Error: no test specified - run example/index.html instead\" && exit 1"
   },
   "dependencies": {
     "leaflet": "^1.7.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "http-server": "^14.0.0",
+    "standard": "^16.0.4"
+  }
 }
