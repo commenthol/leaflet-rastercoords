@@ -1,6 +1,6 @@
 {
   "name": "leaflet-rastercoords",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Leaflet plugin for plain image map projection to display large images using tiles generated with gdal2tiles-leaflet",
   "keywords": [
     "Leaflet",
