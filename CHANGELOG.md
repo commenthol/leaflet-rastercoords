@@ -1,7 +1,10 @@
+## <small>1.0.6 (2023-09-25)</small>
+
+* chore: bump dependencies ([1fff169](https://github.com/commenthol/leaflet-rastercoords/commit/1fff169))
+
 ## <small>1.0.5 (2022-11-02)</small>
 
 * FIX: setting the max boundaries of map is optional now ([fd57cb6](https://github.com/commenthol/leaflet-rastercoords/commit/fd57cb6))
-
 
 
 ## <small>1.0.4 (2021-11-03)</small>
