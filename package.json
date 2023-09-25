@@ -1,6 +1,6 @@
 {
   "name": "leaflet-rastercoords",
-  "version": "1.0.5",
+  "version": "1.0.6-0",
   "description": "Leaflet plugin for plain image map projection to display large images using tiles generated with gdal2tiles-leaflet",
   "keywords": [
     "Leaflet",
@@ -22,15 +22,15 @@
     "example": "example"
   },
   "scripts": {
-    "example": "hs . -a localhost -c-1 -o",
+    "example": "http-server . -a localhost -c-1 -o",
     "lint": "standard -v ./*.js",
     "test": "echo \"Error: no test specified - run example/index.html instead\" && exit 1"
   },
   "dependencies": {
-    "leaflet": "^1.7.1"
+    "leaflet": "^1.9.4"
   },
   "devDependencies": {
-    "http-server": "^14.0.0",
-    "standard": "^16.0.4"
+    "http-server": "^14.1.1",
+    "standard": "^17.1.0"
   }
 }

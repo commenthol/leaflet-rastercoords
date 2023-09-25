@@ -12,6 +12,6 @@ test ! -f gdal2tiles.py \
 
 # process ...
 export GDAL_ALLOW_LARGE_LIBJPEG_MEM_ALLOC=1
-python ./gdal2tiles.py -l -p raster -z 0-4 -w none karta.jpg tiles
+python3 ./gdal2tiles.py -l -p raster -z 0-4 -w none karta.jpg tiles
 
 echo 'Now open "index.html" in your browser.'

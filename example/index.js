@@ -7,33 +7,33 @@
 
 ;(function (window) {
   function init (mapid) {
-    var minZoom = 0
-    var maxZoom = 5
-    var img = [
+    const minZoom = 0
+    const maxZoom = 5
+    const img = [
       3831, // original width of image `karta.jpg`
-      3101  // original height of image
+      3101 // original height of image
     ]
 
     // create the map
-    var map = L.map(mapid, {
+    const map = L.map(mapid, {
       crs: L.CRS.Simple,
-      minZoom: minZoom,
-      maxZoom: maxZoom
+      minZoom,
+      maxZoom
     })
 
     // assign map and image dimensions
-    var rc = new L.RasterCoords(map, img)
+    const rc = new L.RasterCoords(map, img)
 
     // set the view on a marker ...
     map.setView(rc.unproject([1589, 1447]), 4)
 
     // add layer control object
     L.control.layers({}, {
-      'Polygon': layerPolygon(map, rc),
-      'Countries': layerCountries(map, rc),
-      'Bounds': layerBounds(map, rc, img),
-      'Info': layerGeo(map, rc),
-      'Circles': layerCircles(map, rc)
+      Polygon: layerPolygon(map, rc),
+      Countries: layerCountries(map, rc),
+      Bounds: layerBounds(map, rc, img),
+      Info: layerGeo(map, rc),
+      Circles: layerCircles(map, rc)
     }).addTo(map)
 
     // the tile layer containing the image generated with gdal2tiles --leaflet ...
@@ -53,7 +53,7 @@
    */
   function layerBounds (map, rc, img) {
     // set marker at the image bound edges
-    var layerBounds = L.layerGroup([
+    const layerBounds = L.layerGroup([
       L.marker(rc.unproject([0, 0])).bindPopup('[0,0]'),
       L.marker(rc.unproject(img)).bindPopup(JSON.stringify(img))
     ])
@@ -62,9 +62,9 @@
     // set markers on click events in the map
     map.on('click', function (event) {
       // to obtain raster coordinates from the map use `project`
-      var coord = rc.project(event.latlng)
+      const coord = rc.project(event.latlng)
       // to set a marker, ... in raster coordinates in the map use `unproject`
-      var marker = L.marker(rc.unproject(coord))
+      const marker = L.marker(rc.unproject(coord))
         .addTo(layerBounds)
       marker.bindPopup('[' + Math.floor(coord.x) + ',' + Math.floor(coord.y) + ']')
         .openPopup()
@@ -77,7 +77,7 @@
    * layer using geoJson data for countries adding a circle marker
    */
   function layerCountries (map, rc) {
-    var layerCountries = L.geoJson(window.countries, {
+    const layerCountries = L.geoJson(window.countries, {
       // correctly map the geojson coordinates on the image
       coordsToLatLng: function (coords) {
         return rc.unproject(coords)
@@ -107,8 +107,8 @@
    * layer with red markers
    */
   function layerGeo (map, rc) {
-    var imgDir = 'images/'
-    var redMarker = L.icon({
+    const imgDir = 'images/'
+    const redMarker = L.icon({
       iconUrl: imgDir + 'marker-icon-red.png',
       iconRetinaUrl: imgDir + 'marker-icon-red-2x.png',
       iconSize: [25, 41],
@@ -118,7 +118,7 @@
       shadowSize: [41, 41],
       shadowAnchor: [14, 41]
     })
-    var layerGeo = L.geoJson(window.geoInfo, {
+    const layerGeo = L.geoJson(window.geoInfo, {
       // correctly map the geojson coordinates on the image
       coordsToLatLng: function (coords) {
         return rc.unproject(coords)
@@ -143,10 +143,10 @@
    * layer drawing a polygon
    */
   function layerPolygon (map, rc) {
-    var points = window.polygon.map(function (point) {
+    const points = window.polygon.map(function (point) {
       return rc.unproject([point.x, point.y])
     })
-    var layerPolygon = L.polygon([points])
+    const layerPolygon = L.polygon([points])
     map.addLayer(layerPolygon)
     return layerPolygon
   }
@@ -183,22 +183,22 @@
     // Custom marker prototype - credits to Arkensor
     L.CircleMarkerScaling = L.CircleMarker.extend({
       _project: function () {
-        this._point = this._map.latLngToLayerPoint(this._latlng);
-        this._radius = 2 * this.options.radius * this._map.getZoomScale(this._map.getZoom(), this._map.getMaxZoom());
-        this._updateBounds();
+        this._point = this._map.latLngToLayerPoint(this._latlng)
+        this._radius = 2 * this.options.radius * this._map.getZoomScale(this._map.getZoom(), this._map.getMaxZoom())
+        this._updateBounds()
       }
     })
     L.circleMarkerScaling = function (latlng, options) {
-      return new L.CircleMarkerScaling(latlng, options);
+      return new L.CircleMarkerScaling(latlng, options)
     }
 
     const custom = L.circleMarkerScaling(rc.unproject([200, 200]), {
       radius: 200,
       fillColor: '#3388ff',
-      color: '#fbff2c',
+      color: '#fbff2c'
     })
 
-    const layer = L.featureGroup([/*circle, polyline,*/ custom])
+    const layer = L.featureGroup([custom])
     map.addLayer(layer)
     return layer
   }
