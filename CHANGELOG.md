@@ -1,5 +1,7 @@
-# 1.0.7 (2025-09-29)
+# 2.0.0-1 (2025-09-29)
 
+- feat!: upgrade to leaflet@2 (#db9e5b2)
+- chore: deprecate bower and component.json (#c165c04)
 - chore: npm lock (#04a807f)
 
 # 1.0.6 (2023-09-25)
