@@ -1,6 +1,8 @@
 /*
- * @copyright 2015 commenthol
+ * @copyright 2015-present commenthol
  * @license MIT
+ * 
+ * uses leaflet@2
  */
 
 /* global L */
@@ -15,7 +17,7 @@
     ]
 
     // create the map
-    const map = L.map(mapid, {
+    const map = new L.Map(mapid, {
       crs: L.CRS.Simple,
       minZoom,
       maxZoom
@@ -28,7 +30,7 @@
     map.setView(rc.unproject([1589, 1447]), 4)
 
     // add layer control object
-    L.control.layers({}, {
+    new L.Control.Layers({}, {
       Polygon: layerPolygon(map, rc),
       Countries: layerCountries(map, rc),
       Bounds: layerBounds(map, rc, img),
@@ -37,7 +39,7 @@
     }).addTo(map)
 
     // the tile layer containing the image generated with gdal2tiles --leaflet ...
-    L.tileLayer('./tiles/{z}/{x}/{y}.png', {
+    new L.TileLayer('./tiles/{z}/{x}/{y}.png', {
       noWrap: true,
       bounds: rc.getMaxBounds(),
       maxNativeZoom: rc.zoomLevel(),
@@ -53,9 +55,9 @@
    */
   function layerBounds (map, rc, img) {
     // set marker at the image bound edges
-    const layerBounds = L.layerGroup([
-      L.marker(rc.unproject([0, 0])).bindPopup('[0,0]'),
-      L.marker(rc.unproject(img)).bindPopup(JSON.stringify(img))
+    const layerBounds = new L.LayerGroup([
+      new L.Marker(rc.unproject([0, 0])).bindPopup('[0,0]'),
+      new L.Marker(rc.unproject(img)).bindPopup(JSON.stringify(img))
     ])
     map.addLayer(layerBounds)
 
@@ -77,7 +79,7 @@
    * layer using geoJson data for countries adding a circle marker
    */
   function layerCountries (map, rc) {
-    const layerCountries = L.geoJson(window.countries, {
+    const layerCountries = new L.GeoJSON(window.countries, {
       // correctly map the geojson coordinates on the image
       coordsToLatLng: function (coords) {
         return rc.unproject(coords)
@@ -89,7 +91,7 @@
         }
       },
       pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, {
+        return new L.CircleMarker(latlng, {
           radius: 8,
           fillColor: '#800080',
           color: '#D107D1',
@@ -108,7 +110,7 @@
    */
   function layerGeo (map, rc) {
     const imgDir = 'images/'
-    const redMarker = L.icon({
+    const redMarker = new L.Icon({
       iconUrl: imgDir + 'marker-icon-red.png',
       iconRetinaUrl: imgDir + 'marker-icon-red-2x.png',
       iconSize: [25, 41],
@@ -118,7 +120,7 @@
       shadowSize: [41, 41],
       shadowAnchor: [14, 41]
     })
-    const layerGeo = L.geoJson(window.geoInfo, {
+    const layerGeo = new L.GeoJSON(window.geoInfo, {
       // correctly map the geojson coordinates on the image
       coordsToLatLng: function (coords) {
         return rc.unproject(coords)
@@ -130,7 +132,7 @@
         }
       },
       pointToLayer: function (feature, latlng) {
-        return L.marker(latlng, {
+        return new L.Marker(latlng, {
           icon: redMarker
         })
       }
@@ -146,7 +148,7 @@
     const points = window.polygon.map(function (point) {
       return rc.unproject([point.x, point.y])
     })
-    const layerPolygon = L.polygon([points])
+    const layerPolygon = new L.Polygon([points])
     map.addLayer(layerPolygon)
     return layerPolygon
   }
@@ -198,7 +200,7 @@
       color: '#fbff2c'
     })
 
-    const layer = L.featureGroup([custom])
+    const layer = new L.FeatureGroup([custom])
     map.addLayer(layer)
     return layer
   }
